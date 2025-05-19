@@ -1,5 +1,5 @@
 <?php
-// Model para representar um item
+
 class Item {
     public $id;
     public $nome;
