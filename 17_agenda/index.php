@@ -7,7 +7,7 @@
   try {
     $itemDao = new ItemDAO($conn);
     $items = $itemDao->getAll();
-    // Corrigir nomes das chaves para o template
+
     foreach ($items as &$item) {
       if (isset($item['nome'])) $item['name'] = $item['nome'];
       if (isset($item['data_encontro'])) $item['data'] = $item['data_encontro'];
@@ -70,6 +70,5 @@
       <p id="empty-list-text">Ainda não há itens cadastrados, <a href="<?= $BASE_URL ?>create.php">clique aqui para adicionar</a>.</p>
     <?php endif; ?>
   </div>
-<?php
-  include_once("templates/footer.php");
-?>
+
+
