@@ -1,18 +1,16 @@
 <?php
   include("templates/header.php");
-  // Carregar os itens do banco
   include_once("config/connection.php");
+  require_once("dao/ItemDAO.php");
+
   $items = [];
-  $query = "SELECT * FROM itens";
   try {
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $itemDao = new ItemDAO($conn);
+    $items = $itemDao->getAll();
     // Corrigir nomes das chaves para o template
     foreach ($items as &$item) {
       if (isset($item['nome'])) $item['name'] = $item['nome'];
       if (isset($item['data_encontro'])) $item['data'] = $item['data_encontro'];
-      // Corrigir caminho da foto para exibição
       if (!empty($item['foto'])) {
         $item['foto_path'] = $BASE_URL . 'uploads/' . rawurlencode($item['foto']);
       } else {
