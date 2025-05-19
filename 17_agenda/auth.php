@@ -11,7 +11,7 @@
             <input type="hidden" name="type" value="login">
             <div class="form-group">
               <label for="email">E-mail:</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Digite um e-mail válido">
             </div>
             <div class="form-group">
               <label for="password">Senha:</label>
@@ -30,19 +30,19 @@
             </div>
             <div class="form-group">
               <label for="name">Nome:</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome" pattern="[A-Za-zÀ-ÿ\s]+" title="Apenas letras" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')">
             </div>
             <div class="form-group">
               <label for="lastname">Sobrenome:</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Digite seu sobrenome">
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Digite seu sobrenome" pattern="[A-Za-zÀ-ÿ\s]+" title="Apenas letras" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')">
             </div>
             <div class="form-group">
               <label for="password">Senha:</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" pattern=".{6,}" title="A senha deve ter pelo menos 6 caracteres">
             </div>
             <div class="form-group">
               <label for="confirmpassword">Confirmação de senha:</label>
-              <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirme sua senha">
+              <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirme sua senha" pattern=".{6,}" title="A senha deve ter pelo menos 6 caracteres">
             </div>
             <input type="submit" class="btn card-btn" value="Registrar">
           </form>
